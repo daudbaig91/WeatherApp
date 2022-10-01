@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.1315947242206235" />
+        <entry key="app/src/main/res/drawable-v24/bottomview.xml" value="0.2155" />
+        <entry key="app/src/main/res/drawable-v24/cityback.xml" value="0.252" />
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1675" />
+        <entry key="app/src/main/res/drawable-v24/leftcorner.xml" value="0.2155" />
+        <entry key="app/src/main/res/drawable-v24/midcorner.xml" value="0.2155" />
+        <entry key="app/src/main/res/drawable/back1.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/bottombar.xml" value="0.25" />
+        <entry key="app/src/main/res/drawable/color.xml" value="0.3015" />
+        <entry key="app/src/main/res/drawable/day1_vector.xml" value="0.1675" />
+        <entry key="app/src/main/res/drawable/day_vector.xml" value="0.1675" />
+        <entry key="app/src/main/res/drawable/ic_android_black_24dp.xml" value="0.1675" />
+        <entry key="app/src/main/res/drawable/ic_landscape_1844226.xml" value="0.1675" />
+        <entry key="app/src/main/res/drawable/ic_landscape_1844230.xml" value="0.1675" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1675" />
+        <entry key="app/src/main/res/drawable/night_vector.xml" value="0.2065" />
+        <entry key="app/src/main/res/drawable/searchback.xml" value="0.1555" />
+        <entry key="app/src/main/res/layout/activity_first_display.xml" value="0.2807971014492754" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.3268698060941828" />
+        <entry key="app/src/main/res/layout/activity_view.xml" value="0.4036458333333333" />
+        <entry key="app/src/main/res/layout/activity_view2.xml" value="0.2463768115942029" />
+        <entry key="app/src/main/res/layout/fragment_blank.xml" value="0.11119554204660588" />
+        <entry key="app/src/main/res/layout/fragment_content.xml" value="0.225" />
+        <entry key="app/src/main/res/layout/fragment_menu.xml" value="0.45" />
+        <entry key="app/src/main/res/layout/listview_days.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/listview_times.xml" value="0.24094202898550723" />
+        <entry key="app/src/main/res/layout/main_activity.xml" value="0.20260416666666667" />
+        <entry key="app/src/main/res/layout/menu_fragment.xml" value="0.2826086956521739" />
+        <entry key="app/src/main/res/layout/progressbardot.xml" value="0.20520833333333333" />
+        <entry key="app/src/main/res/layout/search_locations.xml" value="0.24739583333333334" />
+        <entry key="app/src/main/res/layout/switch_item.xml" value="0.1390625" />
+        <entry key="app/src/main/res/layout/test.xml" value="0.19375" />
+        <entry key="app/src/main/res/menu/menu.xml" value="0.19375" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1675" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1675" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

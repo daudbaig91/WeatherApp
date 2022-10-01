@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rbase"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:adjustViewBounds="true"
+    android:cropToPadding="false"
+    android:scaleType="centerCrop"
+    tools:context=".MainActivity">
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/menu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:animateLayoutChanges="true"
+
+        android:background="#BF1E1D1D"
+        android:persistentDrawingCache="animation"
+        android:visibility="gone">
+
+        <include layout="@layout/fragment_menu" />
+
+    </com.google.android.material.navigation.NavigationView>
+
+</RelativeLayout>

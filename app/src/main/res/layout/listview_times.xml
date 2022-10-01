@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:overScrollMode="never">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="15dp">
+
+        <ImageView
+            android:id="@+id/times_image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="false"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/halfcloudy1" />
+
+        <TextView
+            android:id="@+id/times_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/times_image"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="false"
+            android:text="5:00 AM"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/times_temp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/times_time"
+            android:layout_centerHorizontal="true"
+            android:text="23\u00B0"
+            android:textColor="@color/black"
+            android:textSize="24sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#3F51B5"
+        android:text="TextView" />
+
+</LinearLayout>
