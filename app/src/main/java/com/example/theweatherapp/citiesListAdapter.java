@@ -118,8 +118,8 @@ class citiesListAdapter extends RecyclerView.Adapter <citiesListAdapter.ViewHold
     public void getCordinates(String s,Boolean bool) throws JSONException {
 
         OkHttpClient client = new OkHttpClient();
-
-        String url = "https://maps.googleapis.com/maps/api/place/details/json?placeid=" + s +"&key=AIzaSyBUH6Bu-8nueKwtTqsWnepO01mnKw6jOj4";
+        String key = BuildConfig.Places_Api;
+        String url = "https://maps.googleapis.com/maps/api/place/details/json?placeid=" + s +"&key=" + key;
 
         Request request = new Request.Builder().url(url).build();
 

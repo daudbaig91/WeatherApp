@@ -18,7 +18,8 @@ public class ActivityView extends AppCompatActivity {
         Intent intent = getIntent();
         String value = intent.getStringExtra("key"); //if it's a string you stored.
         String[] param = value.split(" ");
-        String urlWeather = "https://api.weatherapi.com/v1/forecast.json?key=b3f61c0b86634c7aa20142650222709&q="
+        String weatherKey = BuildConfig.Weather_Api;
+        String urlWeather = "https://api.weatherapi.com/v1/forecast.json?key="+ weatherKey+"&q="
                 +param[0]+","+param[1]+"&days=14&aqi=no&alerts=no";
         OkHttpHandler client = new OkHttpHandler();
 

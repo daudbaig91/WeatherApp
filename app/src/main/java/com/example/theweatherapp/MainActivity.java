@@ -168,8 +168,8 @@ public class MainActivity extends AppCompatActivity{
 
     public void search(String str) throws IOException {
         OkHttpClient client = new OkHttpClient();
-
-        String url = "https://maps.googleapis.com/maps/api/place/autocomplete/json?input="+str +"&types=geocode&types=region&key=AIzaSyBUH6Bu-8nueKwtTqsWnepO01mnKw6jOj4";
+        String placekey = BuildConfig.Places_Api;
+        String url = "https://maps.googleapis.com/maps/api/place/autocomplete/json?input="+str +"&types=geocode&types=region&key=" + placekey;
 
         Request request = new Request.Builder().url(url).build();
 
