@@ -6,18 +6,6 @@
     android:layout_height="match_parent"
     >
 
-    <ImageView
-        android:id="@+id/imageviewbackground"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="-10dp"
-        android:adjustViewBounds="true"
-        android:clickable="true"
-        android:cropToPadding="false"
-        android:scaleType="centerCrop"
-        android:visibility="visible"
-        app:srcCompat="@drawable/back1" />
-
     <RelativeLayout
         android:id="@+id/rlBlurr"
         android:layout_width="match_parent"
@@ -60,6 +48,7 @@
                 style="@style/PrimaryText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="reset"
                 android:text="Loading..."
                 android:textColor="@android:color/secondary_text_light_nodisable"
                 android:textSize="30dp"
@@ -99,6 +88,7 @@
                 style="@style/PrimaryText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="a"
                 android:textSize="90sp"
                 android:textStyle="bold" />
 
@@ -115,6 +105,7 @@
                     android:layout_height="wrap_content"
                     android:drawableLeft="@android:drawable/arrow_down_float"
                     android:paddingLeft="2dp"
+                    android:text="a"
                     android:textSize="18sp" />
 
                 <TextView
@@ -124,6 +115,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:drawableLeft="@android:drawable/arrow_up_float"
+                    android:text="a"
                     android:textSize="18sp" />
             </LinearLayout>
 
@@ -143,6 +135,7 @@
                 style="@style/PrimaryText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="s"
                 android:textSize="27dp"
                 android:textStyle="italic" />
 
@@ -151,6 +144,7 @@
                 style="@style/SecondaryText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="d"
                 android:textSize="16dp"
                 android:textStyle="italic" />
         </LinearLayout>

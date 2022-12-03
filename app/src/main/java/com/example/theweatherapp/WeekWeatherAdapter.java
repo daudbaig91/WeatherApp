@@ -1,6 +1,7 @@
 package com.example.theweatherapp;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -38,6 +39,11 @@ class WeekWeatherAdapter extends RecyclerView.Adapter <WeekWeatherAdapter.ViewHo
         this.context = context;
         this.weekWeather = weekWeather;
         this.vg = view;
+
+    }
+    public void changeColor(View view) {
+
+
     }
 
 
@@ -116,9 +122,26 @@ class WeekWeatherAdapter extends RecyclerView.Adapter <WeekWeatherAdapter.ViewHo
             super(itemView);
             imageWeather = itemView.findViewById(R.id.weather_daysImage);
             dayOfWeek = itemView.findViewById(R.id.days_weather);
+
             porcentageRain = itemView.findViewById(R.id.porcentage_id);
             upTemp = itemView.findViewById(R.id.uptemp);
             lowTemp = itemView.findViewById(R.id.lowtemp);
+
+            SharedPreferences prefs = itemView.getContext().getSharedPreferences("colorCheck", itemView.getContext().MODE_PRIVATE);
+
+            if (prefs.contains("Botomprimarycolor")) {
+                int col = prefs.getInt("Botomprimarycolor", 0);
+                dayOfWeek.setTextColor(col);
+                upTemp.setTextColor(col);
+
+            }
+            if (prefs.contains("Botomsecondarycolor")) {
+                int col2 = prefs.getInt("Botomsecondarycolor", 0);
+
+                lowTemp.setTextColor(col2);
+                porcentageRain.setTextColor(col2);
+
+            }
         }
     }
 }

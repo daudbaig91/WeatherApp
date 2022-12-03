@@ -41,6 +41,7 @@ public class  DynamicFragment extends Fragment {
     String[] param = {"51.507351","-0.127758"};
     int position;
     // adding the layout with inflater
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -48,7 +49,9 @@ public class  DynamicFragment extends Fragment {
 
         this.position = (getArguments().getInt("position"));
 
+
         View view = inflater.inflate(R.layout.fragment_content, container, false);
+        changeColor(view);
         if(position == 0){
             ImageView deletebttn = view.findViewById(R.id.deletefrag);
             deletebttn.setVisibility(View.GONE);
@@ -97,13 +100,42 @@ public class  DynamicFragment extends Fragment {
         //param = gl.GetLocationParam(this, );
 
 
-        String urlWeather = "https://api.weatherapi.com/v1/forecast.json?key=b3f61c0b86634c7aa20142650222709&q="
+        String urlWeather = "https://api.weatherapi.com/v1/forecast.json?key=" + BuildConfig.Weather_Api+"&q="
                 +param[0]+","+param[1]+"&days=14&aqi=no&alerts=no";
         OkHttpHandler client = new OkHttpHandler();
 
         client.doInBackground2(urlWeather,view,getContext(),position);
 
     }
+
+    public void changeColor(View view) {
+
+        SharedPreferences prefs = this.getContext().getSharedPreferences("colorCheck", this.getContext().MODE_PRIVATE);
+        TextView tv1 = view.findViewById(R.id.date_text);
+        TextView tv2 = view.findViewById(R.id.degreestextView);
+        TextView tv3 = view.findViewById(R.id.weatherdescp);
+        View view2 = view.findViewById(R.id.mainsecondarycolor);
+        TextView tv4 = view.findViewById(R.id.lowdeg);
+        TextView tv5 = view.findViewById(R.id.highdeg);
+        TextView tv6 = view.findViewById(R.id.feelslikedesc);
+        TextView tv7 = view.findViewById(R.id.citynamedisplay);
+        if (prefs.contains("mainprimarycolor")) {
+            int col = prefs.getInt("mainprimarycolor", 0);
+
+            tv1.setTextColor(col);
+            tv2.setTextColor(col);
+            tv3.setTextColor(col);
+        }
+        if (prefs.contains("mainsecondarycolor")) {
+            int col2 = prefs.getInt("mainsecondarycolor", 0);
+
+            tv4.setTextColor(col2);
+            tv5.setTextColor(col2);
+            tv6.setTextColor(col2);
+            tv7.setTextColor(col2);
+        }
+    }
+
 
     public void hidebar(View view) {
         View v = view.findViewById(R.id.textView);

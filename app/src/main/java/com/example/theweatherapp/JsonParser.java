@@ -56,6 +56,7 @@ public class JsonParser {
 
     public void JsonLoadDate(String resp,View view) throws JSONException, ParseException {
 
+        Log.d("tst11" , resp.toString());
         String time = (new JSONObject(resp)).getJSONObject("location")
                 .getString("localtime");
 

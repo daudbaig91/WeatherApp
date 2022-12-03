@@ -10,7 +10,7 @@ import okhttp3.Response;
 class OkHttpHandler extends AsyncTask {
 
     OkHttpClient client = new OkHttpClient();
-    String stringcheck = "testtest";
+
     public void doInBackground2(String url,View view, Context context,int position) {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
 

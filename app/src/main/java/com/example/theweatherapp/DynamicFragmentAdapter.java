@@ -3,6 +3,8 @@ package com.example.theweatherapp;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -30,6 +32,7 @@ public class DynamicFragmentAdapter extends FragmentStatePagerAdapter {
         frag.setArguments(b);
         return frag;
     }
+
 
     // get total number of tabs
     @Override

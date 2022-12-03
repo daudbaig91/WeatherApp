@@ -34,11 +34,29 @@
             android:id="@+id/blurLayout2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="#00FFFFFF"
             app:blk_blurRadius="8"
             app:blk_downscaleFactor="0.01"
             app:blk_fps="50">
 
         </io.alterac.blurkit.BlurLayout>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/backgroundChangerlayout"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:background="@drawable/resetcurve"
+            android:onClick="reset"
+            android:paddingLeft="5dp"
+            android:paddingTop="5dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="5dp"
+            android:text="Reset"
+            android:textColor="#070707" />
 
         <RelativeLayout
             android:id="@+id/searchRl"
@@ -239,6 +257,16 @@
 
         </RelativeLayout>
 
+        <Switch
+            android:id="@+id/switch3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/backgroundChangerlayout"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="10dp"
+            android:text="Blurr:"
+            android:textColor="#683E02" />
+
         <RelativeLayout
             android:id="@+id/backgroundChangerlayout"
             android:layout_width="match_parent"
@@ -248,26 +276,16 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp">
 
-            <Switch
-                android:id="@+id/switch3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="false"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="3dp"
-                android:layout_toLeftOf="@id/backgroundChangerimage"
-                android:text="Blurr:"
-                android:textColor="#CDC0C0" />
-
             <TextView
 
+                android:id="@+id/tv1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="false"
                 android:layout_centerHorizontal="false"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="40dp"
-                android:text="Chart SecondaryColor "
+                android:text="Background "
                 android:textColor="@color/white"
                 android:textSize="18sp" />
 
@@ -277,8 +295,8 @@
                 android:layout_height="30dp"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="50dp"
-                android:onClick="imageChooser"
-                app:srcCompat="@drawable/day_vector" />
+                android:background="@drawable/back1"
+                android:onClick="imageChooser" />
 
         </RelativeLayout>
 
