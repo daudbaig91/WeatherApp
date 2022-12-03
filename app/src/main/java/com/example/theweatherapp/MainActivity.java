@@ -32,8 +32,10 @@ import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,6 +52,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import jp.wasabeef.blurry.Blurry;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
@@ -110,6 +113,29 @@ public class MainActivity extends AppCompatActivity{
         viewPager = findViewById(R.id.viewpager);
         recyclerViewCities.setAdapter(new citiesListAdapter(MainActivity.this, cities, citiesId, main,viewPager));
 
+        Switch mySwitch = findViewById(R.id.switch3);
+        mySwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                // do something, the isChecked will be
+                // true if the switch is in the On position
+//                if(isChecked){
+//                    Blurry.with(getApplicationContext())
+//                            .radius(10)
+//                            .sampling(8)
+//                            .color(Color.argb(66, 255, 255, 0))
+//                            .async()
+//                            .onto(viewPager);
+//                }else {
+//                    Blurry.with(getApplicationContext())
+//                            .radius(0)
+//                            .sampling(0)
+//                            .async()
+//                            .onto(viewPager);
+//                }
+
+                //commented this as library has some errors, but mainly makes the app laggy.
+            }
+        });
 
         TextView search = findViewById(R.id.city_search);
         RecyclerView rv = findViewById(R.id.citiesrecyclerview);
@@ -364,10 +390,6 @@ public class MainActivity extends AppCompatActivity{
                         SharedPreferences.Editor editor = getSharedPreferences("backgroundimage", MODE_PRIVATE).edit();
                             editor.putString("image_data",saveToInternalStorage(selectedImageBitmap));
                             editor.apply();
-
-
-
-
 
                     }
                 }
