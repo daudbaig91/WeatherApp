@@ -127,6 +127,8 @@ public class MainActivity extends AppCompatActivity{
                 boolSwitch = isChecked;
                 if (isChecked){
                     blurr(Float.valueOf(seekBar.getProgress())/4);
+                }else {
+                    blurr(0f);
                 }
                 editBlurrDatabase(boolSwitch,Float.valueOf(seekBar.getProgress())/4);
             }
