@@ -130,12 +130,14 @@ public class JsonParser {
 
         dataWeather.weatherCode = Integer.valueOf(objday.getJSONObject("condition").getString("code")).toString();
         dataWeather.city = (obj.getJSONObject("location")).getString("name");
-        dataWeather.temperature = objday.getString("avgtemp_c");
+        dataWeather.temperature = obj.getJSONObject("current").getString("temp_c");
         dataWeather.weather = ((JSONObject)arr.get(0)).getJSONObject("day").getJSONObject("condition").getString("text");
         dataWeather.feelLike =  obj.getJSONObject("current").getString("feelslike_c");
         dataWeather.minTemp = objday.getString("mintemp_c");
         dataWeather.maxTemp = objday.getString("maxtemp_c");
-
+        dataWeather.humidty = obj.getJSONObject("current").getString("humidity");
+        dataWeather.windspeed = obj.getJSONObject("current").getString("wind_mph");
+        dataWeather.chancerain = objday.getString("daily_chance_of_rain");
 
         dataWeather.converData();
         //running on main Therad;;
@@ -151,7 +153,9 @@ public class JsonParser {
                 TextView highDeg = view.findViewById(R.id.highdeg);
                 TextView weatherDesc = view.findViewById(R.id.weatherdescp);
                 TextView feelsLikeDesc = view.findViewById(R.id.feelslikedesc);
-
+                TextView Humidity = view.findViewById(R.id.humidity);
+                TextView rainChance = view.findViewById(R.id.rainchance);
+                TextView windSpeed = view.findViewById(R.id.windspeed);
 
                 TinyDB db = new TinyDB(context
                 );
@@ -191,6 +195,9 @@ public class JsonParser {
                 highDeg.setText(dataWeather.maxTemp + "\u00B0");
                 weatherDesc.setText(dataWeather.weather);
                 feelsLikeDesc.setText("Feels like " + dataWeather.feelLike + "\u00B0");
+                Humidity.setText("Humidity: "+dataWeather.humidty +"%");
+                windSpeed.setText("Wind Speed: "+dataWeather.windspeed +"m/h");
+                rainChance.setText("Chance of rain is : "+dataWeather.chancerain +"%");
             }
         };
         mainHandler2.post(myRunnable2);

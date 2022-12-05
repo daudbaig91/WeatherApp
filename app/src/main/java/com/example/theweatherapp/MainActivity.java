@@ -116,8 +116,7 @@ public class MainActivity extends AppCompatActivity{
         Switch mySwitch = findViewById(R.id.switch3);
         mySwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                // do something, the isChecked will be
-                // true if the switch is in the On position
+           
 //                if(isChecked){
 //                    Blurry.with(getApplicationContext())
 //                            .radius(10)

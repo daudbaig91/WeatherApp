@@ -27,7 +27,7 @@
         <entry key="app/src/main/res/layout/activity_view.xml" value="0.4036458333333333" />
         <entry key="app/src/main/res/layout/activity_view2.xml" value="0.2463768115942029" />
         <entry key="app/src/main/res/layout/fragment_blank.xml" value="0.11119554204660588" />
-        <entry key="app/src/main/res/layout/fragment_content.xml" value="0.1728395061728395" />
+        <entry key="app/src/main/res/layout/fragment_content.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_menu.xml" value="0.37962962962962965" />
         <entry key="app/src/main/res/layout/listview_days.xml" value="0.375" />
         <entry key="app/src/main/res/layout/listview_times.xml" value="0.24094202898550723" />

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    android:layout_alignTop="@id/feellL">
 
     <RelativeLayout
         android:id="@+id/rlBlurr"
@@ -145,6 +145,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="d"
+                android:textColor="#cdc0c0"
                 android:textSize="16dp"
                 android:textStyle="italic" />
         </LinearLayout>
@@ -219,8 +220,8 @@
                     android:layout_width="50dp"
                     android:layout_height="51dp"
                     android:layout_alignParentRight="true"
-                    android:orientation="horizontal"
-                    android:background="@drawable/rightcorner" />
+                    android:background="@drawable/rightcorner"
+                    android:orientation="horizontal" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -296,6 +297,42 @@
             android:layout_alignParentRight="true"
             android:layout_marginRight="20dp"
             app:srcCompat="@drawable/remove" />
+
+        <TextView
+            android:id="@+id/rainchance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/feellL"
+            android:layout_alignLeft="@id/feellL"
+            android:text="Chance of rain is "
+            android:textColor="#cdc0c0"
+            android:textSize="16dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/feellL"
+            android:layout_alignLeft="@id/weathersign"
+            android:layout_alignParentRight="false"
+            android:layout_marginTop="-19dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/humidity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Humidity:"
+                android:textColor="#cdc0c0" />
+
+            <TextView
+                android:id="@+id/windspeed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Wind Speed:"
+                android:textColor="#cdc0c0" />
+        </LinearLayout>
 
     </RelativeLayout>
 </RelativeLayout>

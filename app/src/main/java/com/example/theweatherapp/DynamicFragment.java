@@ -64,9 +64,6 @@ public class  DynamicFragment extends Fragment {
     // initialise the categories
     private void initViews(View view) {
 
-
-
-
         Log.d("urlTest",url1);
         //TextView textView = view.findViewById(R.id.commonTextView);
         //textView.setText(String.valueOf("Category :  " + getArguments().getInt("position")));

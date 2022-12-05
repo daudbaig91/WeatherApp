@@ -17,6 +17,9 @@ public class WeatherData {
     String maxTemp;
     String date;
     String weatherCode;
+    String humidty;
+    String chancerain;
+    String windspeed;
 
     public WeatherData() {
 
@@ -29,6 +32,7 @@ public class WeatherData {
         this.feelLike = KtoC(this.feelLike);
         this.minTemp = KtoC(this.minTemp);
         this.maxTemp = KtoC(this.maxTemp);
+
     }
 
     public String KtoC(String k){
