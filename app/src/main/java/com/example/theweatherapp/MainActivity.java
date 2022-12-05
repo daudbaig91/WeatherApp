@@ -18,23 +18,21 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.DrawableWrapper;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Base64;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -44,7 +42,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -52,6 +49,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import eightbitlab.com.blurview.BlurView;
 import jp.wasabeef.blurry.Blurry;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -67,21 +65,30 @@ public class MainActivity extends AppCompatActivity{
 
     RecyclerView recyclerViewCities;
     private ViewPager viewPager;
-
-
-
+    TextView tvProgressLabel;
+    SeekBar seekBar;
+    Switch mySwitch ;
+    Boolean boolSwitch;
+    ArrayList<String> citiesId = new ArrayList<>();
+    private SharedPreferences prefsw ;
+    private SharedPreferences prefs;
+    public ArrayList<String> cities = new ArrayList<>();
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        SharedPreferences prefsw = getSharedPreferences("backgroundimage", MODE_PRIVATE);
-        SharedPreferences prefs = getSharedPreferences("colorCheck", MODE_PRIVATE);
+        mySwitch = findViewById(R.id.switch3);
+
+        prefs = getSharedPreferences("colorCheck", MODE_PRIVATE); ;
+        prefsw = getSharedPreferences("backgroundimage", MODE_PRIVATE);
         if(prefs.contains("mainprimarycolor")){
             changeColor(prefs.getInt("mainprimarycolor",0),"mainprimarycolor");
-        }if(prefs.contains("mainsecondarycolor")){
+        }
+        if(prefs.contains("mainsecondarycolor")){
             changeColor(prefs.getInt("mainsecondarycolor",0),"mainsecondarycolor");
-        }if(prefs.contains("Botomprimarycolor")){
+        }
+        if(prefs.contains("Botomprimarycolor")){
             changeColor(prefs.getInt("Botomprimarycolor",0),"Botomprimarycolor");
         }if(prefs.contains("Botomsecondarycolor")){
             changeColor(prefs.getInt("Botomsecondarycolor",0),"Botomsecondarycolor");
@@ -101,40 +108,30 @@ public class MainActivity extends AppCompatActivity{
 
 
         runFragment();
+        //reloading - generating fragmetn panels
 
         recyclerViewCities = findViewById(R.id.citiesrecyclerview);
+
         recyclerViewCities.setHasFixedSize(true);
         recyclerViewCities.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
 
         RelativeLayout main = findViewById(R.id.rlBlurr);
 
-
         viewPager = findViewById(R.id.viewpager);
         recyclerViewCities.setAdapter(new citiesListAdapter(MainActivity.this, cities, citiesId, main,viewPager));
 
-        Switch mySwitch = findViewById(R.id.switch3);
+
         mySwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-           
-//                if(isChecked){
-//                    Blurry.with(getApplicationContext())
-//                            .radius(10)
-//                            .sampling(8)
-//                            .color(Color.argb(66, 255, 255, 0))
-//                            .async()
-//                            .onto(viewPager);
-//                }else {
-//                    Blurry.with(getApplicationContext())
-//                            .radius(0)
-//                            .sampling(0)
-//                            .async()
-//                            .onto(viewPager);
-//                }
-
-                //commented this as library has some errors, but mainly makes the app laggy.
+                boolSwitch = isChecked;
+                if (isChecked){
+                    blurr(Float.valueOf(seekBar.getProgress())/4);
+                }
+                editBlurrDatabase(boolSwitch,Float.valueOf(seekBar.getProgress())/4);
             }
         });
+
 
         TextView search = findViewById(R.id.city_search);
         RecyclerView rv = findViewById(R.id.citiesrecyclerview);
@@ -183,10 +180,78 @@ public class MainActivity extends AppCompatActivity{
                 }
             }
         });
+        seekBar = findViewById(R.id.seekBar);
+        seekBar.setOnSeekBarChangeListener(seekBarChangeListener);
+        int progress = seekBar.getProgress();
+        tvProgressLabel = findViewById(R.id.textView2);
+        tvProgressLabel.setText(progress+"%");
 
+        SharedPreferences editor = getSharedPreferences("backgroundimage", MODE_PRIVATE);
+        if(editor.getFloat("blurr",0f)>=1){
+            seekBar.setProgress(((int) editor.getFloat("blurr", 0f))*4);
+            tvProgressLabel.setText(((int) editor.getFloat("blurr", 0f))*4+"%");
+        }
+        if (editor.getBoolean("blurrBool",false)){
+            mySwitch.setChecked(true);
+        }else{
+            mySwitch.setChecked(false);
+        }
 
     }
 
+    SeekBar.OnSeekBarChangeListener seekBarChangeListener = new SeekBar.OnSeekBarChangeListener() {
+
+        @Override
+        public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+            // updated continuously as the user slides the thumb
+            tvProgressLabel.setText(progress+"%");
+        }
+
+        @Override
+        public void onStartTrackingTouch(SeekBar seekBar) {
+            // called when the user first touches the SeekBar
+        }
+
+        @Override
+        public void onStopTrackingTouch(SeekBar seekBar) {
+           if (boolSwitch) {
+                blurr(Float.valueOf(seekBar.getProgress())/4);
+           }
+           editBlurrDatabase(boolSwitch,Float.valueOf(seekBar.getProgress())/4);
+        }
+    };
+
+    void editBlurrDatabase(boolean b, float ft){
+        SharedPreferences.Editor editor = getSharedPreferences("backgroundimage", MODE_PRIVATE).edit();
+        editor.putFloat("blurr",ft);
+        if (b){
+            editor.putBoolean("blurrBool",true);
+            Toast.makeText(getApplicationContext(),"True Written",Toast.LENGTH_SHORT).show();
+
+        }else {
+            Toast.makeText(getApplicationContext(),"False Written",Toast.LENGTH_SHORT).show();
+            editor.putBoolean("blurrBool",false);
+        }
+        editor.apply();
+    }
+
+    public void blurr(Float rad) {
+        rv = findViewById(R.id.blurr2);
+        if(rad<1f){
+            rv.setBlurEnabled(false);
+        }else {
+
+
+            View decorView = getWindow().getDecorView();
+            ViewGroup rootView = (ViewGroup) decorView.findViewById(R.id.rbase);
+            rv.setupWith(rootView).setFrameClearDrawable(decorView.getBackground());
+            rv.setBlurEnabled(true);
+            rv.setBlurRadius(rad);
+            rv.setBlurAutoUpdate(true);
+        }
+
+    }
+    BlurView rv;
     private void runFragment() {
         new FragmentLoader(this,0,0);
     }
@@ -222,8 +287,7 @@ public class MainActivity extends AppCompatActivity{
         });
     }
 
-    ArrayList<String> citiesId = new ArrayList<>();
-    public ArrayList<String> cities = new ArrayList<>();
+
 
     public void getcities(String str) throws JSONException {
         Log.d("ts121",str);
@@ -348,11 +412,11 @@ public class MainActivity extends AppCompatActivity{
         prefsw.edit().clear().commit();
         prefs.edit().clear().commit();
 
-        view1.setBackgroundColor(Color.parseColor("#914F4F"));
-        view2.setBackgroundColor(Color.parseColor("#914F4F"));
+        view1.setBackgroundColor(Color.parseColor("#FFFFFF"));
+        view2.setBackgroundColor(Color.parseColor("#cdc0c0"));
         view3.setBackgroundColor(Color.parseColor("#914F4F"));
-        view4.setBackgroundColor(Color.parseColor("#914F4F"));
-        ViewPager img=(ViewPager) findViewById(R.id.viewpager);
+        view4.setBackgroundColor(Color.parseColor("#FFFFFF"));
+        RelativeLayout img=findViewById(R.id.rbase);
         img.setBackgroundColor(0);
         ImageView view5 = findViewById(R.id.backgroundChangerimage);
         view5.setBackgroundResource(R.drawable.back1);
@@ -381,7 +445,7 @@ public class MainActivity extends AppCompatActivity{
                             e.printStackTrace();
                         }
 
-                        ViewPager img=(ViewPager) findViewById(R.id.viewpager);
+                        RelativeLayout img=findViewById(R.id.rbase);
                         img.setBackground(new BitmapDrawable(getResources(), selectedImageBitmap));
                         findViewById(R.id.backgroundChangerimage).setBackground(new BitmapDrawable(getResources(), selectedImageBitmap));;
 
@@ -421,7 +485,7 @@ public class MainActivity extends AppCompatActivity{
         try {
             File f=new File(path, "background.jpg");
             Bitmap b = BitmapFactory.decodeStream(new FileInputStream(f));
-            ViewPager img=(ViewPager) findViewById(R.id.viewpager);
+            RelativeLayout img= findViewById(R.id.rbase);
             BitmapDrawable ob = new BitmapDrawable(getResources(), b);
             img.setBackground(ob);
 

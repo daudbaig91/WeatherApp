@@ -116,6 +116,9 @@ public class  DynamicFragment extends Fragment {
         TextView tv5 = view.findViewById(R.id.highdeg);
         TextView tv6 = view.findViewById(R.id.feelslikedesc);
         TextView tv7 = view.findViewById(R.id.citynamedisplay);
+        TextView tv8 = view.findViewById(R.id.humidity);
+        TextView tv9 = view.findViewById(R.id.rainchance);
+        TextView tv10 = view.findViewById(R.id.windspeed);
         if (prefs.contains("mainprimarycolor")) {
             int col = prefs.getInt("mainprimarycolor", 0);
 
@@ -130,6 +133,9 @@ public class  DynamicFragment extends Fragment {
             tv5.setTextColor(col2);
             tv6.setTextColor(col2);
             tv7.setTextColor(col2);
+            tv8.setTextColor(col2);
+            tv9.setTextColor(col2);
+            tv10.setTextColor(col2);
         }
     }
 

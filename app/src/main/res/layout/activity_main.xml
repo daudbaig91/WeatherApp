@@ -12,10 +12,19 @@
     android:scaleType="centerCrop"
     tools:context=".MainActivity">
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/viewpager"
+    <eightbitlab.com.blurview.BlurView
+        android:id="@+id/blurr2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </androidx.viewpager.widget.ViewPager>
+
+    </eightbitlab.com.blurview.BlurView>
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/menu"
@@ -31,5 +40,4 @@
         <include layout="@layout/fragment_menu" />
 
     </com.google.android.material.navigation.NavigationView>
-
 </RelativeLayout>

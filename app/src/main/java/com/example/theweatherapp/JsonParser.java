@@ -196,7 +196,7 @@ public class JsonParser {
                 weatherDesc.setText(dataWeather.weather);
                 feelsLikeDesc.setText("Feels like " + dataWeather.feelLike + "\u00B0");
                 Humidity.setText("Humidity: "+dataWeather.humidty +"%");
-                windSpeed.setText("Wind Speed: "+dataWeather.windspeed +"m/h");
+                windSpeed.setText("Wind Speed: "+dataWeather.windspeed +" m/h");
                 rainChance.setText("Chance of rain is : "+dataWeather.chancerain +"%");
             }
         };

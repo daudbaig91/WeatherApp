@@ -13,6 +13,42 @@
         android:layout_alignParentBottom="true"
         android:animateLayoutChanges="true">
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/feellL"
+            android:layout_alignLeft="@id/weathersign"
+            android:layout_alignParentRight="false"
+            android:layout_marginTop="-19dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/humidity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Humidity:"
+                android:textColor="#cdc0c0" />
+
+            <TextView
+                android:id="@+id/windspeed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Wind Speed:"
+                android:textColor="#cdc0c0" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/rainchance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/feellL"
+            android:layout_alignLeft="@id/feellL"
+            android:text="Chance of rain is "
+            android:textColor="#cdc0c0"
+            android:textSize="16dp" />
+
         <TextView
             android:id="@+id/date_text"
             android:layout_width="wrap_content"
@@ -246,7 +282,7 @@
                 <com.github.mikephil.charting.charts.LineChart
                     android:id="@+id/lineChart"
                     android:layout_width="match_parent"
-                    android:layout_height="128dp"
+                    android:layout_height="100dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:paddingTop="10dp"
@@ -297,42 +333,6 @@
             android:layout_alignParentRight="true"
             android:layout_marginRight="20dp"
             app:srcCompat="@drawable/remove" />
-
-        <TextView
-            android:id="@+id/rainchance"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/feellL"
-            android:layout_alignLeft="@id/feellL"
-            android:text="Chance of rain is "
-            android:textColor="#cdc0c0"
-            android:textSize="16dp" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/feellL"
-            android:layout_alignLeft="@id/weathersign"
-            android:layout_alignParentRight="false"
-            android:layout_marginTop="-19dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/humidity"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Humidity:"
-                android:textColor="#cdc0c0" />
-
-            <TextView
-                android:id="@+id/windspeed"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Wind Speed:"
-                android:textColor="#cdc0c0" />
-        </LinearLayout>
 
     </RelativeLayout>
 </RelativeLayout>
