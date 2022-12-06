@@ -216,7 +216,7 @@ public class MainActivity extends AppCompatActivity{
 
         @Override
         public void onStopTrackingTouch(SeekBar seekBar) {
-           if (boolSwitch) {
+           if (mySwitch.isChecked()) {
                 blurr(Float.valueOf(seekBar.getProgress())/4);
            }
            editBlurrDatabase(boolSwitch,Float.valueOf(seekBar.getProgress())/4);

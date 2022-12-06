@@ -16,10 +16,9 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/feellL"
             android:layout_alignLeft="@id/weathersign"
+            android:layout_alignBottom="@id/rainchance"
             android:layout_alignParentRight="false"
-            android:layout_marginTop="-19dp"
             android:orientation="vertical">
 
             <TextView
@@ -27,16 +26,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="sans-serif-condensed-medium"
                 android:text="Humidity:"
-                android:textColor="#cdc0c0" />
+                android:textColor="#cdc0c0"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/windspeed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="sans-serif-condensed-medium"
                 android:text="Wind Speed:"
-                android:textColor="#cdc0c0" />
+                android:textColor="#cdc0c0"
+                android:textSize="16sp" />
         </LinearLayout>
 
         <TextView
@@ -45,9 +48,10 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/feellL"
             android:layout_alignLeft="@id/feellL"
+            android:fontFamily="sans-serif-condensed-medium"
             android:text="Chance of rain is "
             android:textColor="#cdc0c0"
-            android:textSize="16dp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/date_text"
@@ -76,7 +80,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/date_text"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="25dp"
             android:orientation="vertical">
 
             <TextView
@@ -117,7 +121,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/citylL"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="10dp">
 
             <TextView
                 android:id="@+id/degreestextView"
@@ -140,6 +144,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@android:drawable/arrow_down_float"
+                    android:fontFamily="sans-serif-condensed-medium"
                     android:paddingLeft="2dp"
                     android:text="a"
                     android:textSize="18sp" />
@@ -151,6 +156,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:drawableLeft="@android:drawable/arrow_up_float"
+                    android:fontFamily="sans-serif-condensed-medium"
                     android:text="a"
                     android:textSize="18sp" />
             </LinearLayout>
@@ -163,7 +169,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/degreesLl"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="15dp"
             android:orientation="vertical">
 
             <TextView
@@ -180,9 +186,10 @@
                 style="@style/SecondaryText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed-medium"
                 android:text="d"
                 android:textColor="#cdc0c0"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 android:textStyle="italic" />
         </LinearLayout>
 

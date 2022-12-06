@@ -167,7 +167,7 @@ public class JsonParser {
                 layoutParams.width = dpToPx(10,context);
                 layoutParams.height = dpToPx(10,context);
                 if(position==0){
-                    ivcopy.setImageResource(R.drawable.dots);;
+                    ivcopy.setImageResource(R.drawable.navigation);;
 
                 }
                     for (int i = 0; i < index - 1; i++) {
