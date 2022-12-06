@@ -24,307 +24,313 @@
         app:blk_downscaleFactor="0.01"
         app:blk_fps="50">
 
-        <RelativeLayout
-            android:id="@+id/rlmenu"
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="40dp"
-                android:layout_marginRight="30dp"
-                android:onClick="clicked"
-                app:srcCompat="@drawable/menu" />
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/backgroundChangerlayout"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="50dp"
-                android:background="@drawable/resetcurve"
-                android:paddingLeft="5dp"
-                android:paddingTop="5dp"
-                android:paddingRight="5dp"
-                android:paddingBottom="5dp"
-                android:text="0%"
-                android:textColor="#070707" />
-
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/textView2"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="50dp"
-                android:background="@drawable/resetcurve"
-                android:onClick="reset"
-                android:paddingLeft="5dp"
-                android:paddingTop="5dp"
-                android:paddingRight="5dp"
-                android:paddingBottom="5dp"
-                android:text="Reset"
-                android:textColor="#070707" />
-
             <RelativeLayout
-                android:id="@+id/searchRl"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/imageView3"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="25dp"
-                android:layout_marginRight="15dp"
-                android:background="@drawable/searchback">
+                android:id="@+id/rlmenu"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="100dp">
 
                 <ImageView
-                    android:id="@+id/navigationIcon"
+                    android:id="@+id/imageView3"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="15dp"
-                    android:scaleType="fitCenter"
-                    app:srcCompat="@drawable/navigation" />
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginRight="30dp"
+                    android:onClick="clicked"
+                    app:srcCompat="@drawable/menu" />
 
-                <EditText
-                    android:id="@+id/city_search"
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/backgroundChangerlayout"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="50dp"
+                    android:background="@drawable/resetcurve"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="5dp"
+                    android:text="0%"
+                    android:textColor="#070707" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/textView2"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="50dp"
+                    android:background="@drawable/resetcurve"
+                    android:onClick="reset"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="5dp"
+                    android:text="Reset"
+                    android:textColor="#070707" />
+
+                <RelativeLayout
+                    android:id="@+id/searchRl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/imageView3"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/searchback">
+
+                    <ImageView
+                        android:id="@+id/navigationIcon"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="15dp"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/navigation" />
+
+                    <EditText
+                        android:id="@+id/city_search"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_toLeftOf="@id/searchIcon"
+                        android:layout_toRightOf="@id/navigationIcon"
+                        android:ems="10"
+                        android:hint="Search"
+                        android:inputType="textPersonName" />
+
+                    <ImageView
+                        android:id="@+id/searchIcon"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="15dp"
+                        app:srcCompat="@drawable/search" />
+                </RelativeLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/citiesrecyclerview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_toLeftOf="@id/searchIcon"
-                    android:layout_toRightOf="@id/navigationIcon"
-                    android:ems="10"
-                    android:hint="Search"
-                    android:inputType="textPersonName" />
-
-                <ImageView
-                    android:id="@+id/searchIcon"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="15dp"
-                    app:srcCompat="@drawable/search" />
-            </RelativeLayout>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/citiesrecyclerview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/searchRl"
-                android:layout_marginTop="20dp"
-                android:clickable="true"
-                android:visibility="gone" />
-
-            <TextView
-                android:id="@+id/prefernecesid"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/citiesrecyclerview"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="30dp"
-                android:text="Preferences"
-                android:textColor="#E6CECE"
-                android:textSize="27sp"
-                android:textStyle="bold" />
-
-            <View
-                android:id="@+id/seprator"
-                android:layout_width="wrap_content"
-                android:layout_height="2dp"
-                android:layout_below="@id/prefernecesid"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="30dp"
-                android:background="#E6CECE" />
-
-            <RelativeLayout
-                android:id="@+id/mainprimarylayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/prefernecesid"
-                android:layout_marginTop="10dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp">
+                    android:layout_below="@id/searchRl"
+                    android:layout_marginTop="20dp"
+                    android:clickable="true"
+                    android:visibility="gone" />
 
                 <TextView
+                    android:id="@+id/prefernecesid"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerInParent="false"
-                    android:layout_centerHorizontal="false"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="40dp"
-                    android:text="Main Primary Color "
-                    android:textColor="@color/white"
-                    android:textSize="18sp" />
+                    android:layout_below="@id/citiesrecyclerview"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="30dp"
+                    android:text="Preferences"
+                    android:textColor="#E6CECE"
+                    android:textSize="27sp"
+                    android:textStyle="bold" />
 
                 <View
-                    android:id="@+id/mainprimarycolor"
-                    android:layout_width="40dp"
-                    android:layout_height="30dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="50dp"
-                    android:background="#FFFFFF"
-                    android:onClick="opendialog" />
+                    android:id="@+id/seprator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="2dp"
+                    android:layout_below="@id/prefernecesid"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="30dp"
+                    android:background="#E6CECE" />
 
-            </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/mainprimarylayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/prefernecesid"
+                    android:layout_marginTop="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp">
 
-            <RelativeLayout
-                android:id="@+id/mainsecondarylayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/mainprimarylayout"
-                android:layout_marginTop="10dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="false"
+                        android:layout_centerHorizontal="false"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="40dp"
+                        android:text="Main Primary Color "
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
 
-                <TextView
+                    <View
+                        android:id="@+id/mainprimarycolor"
+                        android:layout_width="40dp"
+                        android:layout_height="30dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="50dp"
+                        android:background="#FFFFFF"
+                        android:onClick="opendialog" />
 
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/mainsecondarylayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/mainprimarylayout"
+                    android:layout_marginTop="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp">
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="false"
+                        android:layout_centerHorizontal="false"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="40dp"
+                        android:text="Main SecondaryColor "
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+                    <View
+                        android:id="@+id/mainsecondarycolor"
+                        android:layout_width="40dp"
+                        android:layout_height="30dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="50dp"
+                        android:background="#cdc0c0"
+                        android:onClick="opendialog" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/Botomprimarylayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/mainsecondarylayout"
+                    android:layout_marginTop="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp">
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="false"
+                        android:layout_centerHorizontal="false"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="40dp"
+                        android:text="Chart Primary Color "
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+                    <View
+                        android:id="@+id/Botomprimarycolor"
+                        android:layout_width="40dp"
+                        android:layout_height="30dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="50dp"
+                        android:background="#FFFFFF"
+                        android:onClick="opendialog" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/Botomsecondarylayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/Botomprimarylayout"
+                    android:layout_marginTop="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp">
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="false"
+                        android:layout_centerHorizontal="false"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="40dp"
+                        android:text="Chart SecondaryColor "
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+                    <View
+                        android:id="@+id/Botomsecondarycolor"
+                        android:layout_width="40dp"
+                        android:layout_height="30dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="50dp"
+                        android:background="#cdc0c0"
+                        android:onClick="opendialog" />
+
+                </RelativeLayout>
+
+                <Switch
+                    android:id="@+id/switch3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerInParent="false"
-                    android:layout_centerHorizontal="false"
-                    android:layout_centerVertical="true"
+                    android:layout_below="@id/backgroundChangerlayout"
                     android:layout_marginLeft="40dp"
-                    android:text="Main SecondaryColor "
-                    android:textColor="@color/white"
-                    android:textSize="18sp" />
+                    android:layout_marginTop="10dp"
+                    android:text="Blurr:"
+                    android:textColor="@color/white" />
 
-                <View
-                    android:id="@+id/mainsecondarycolor"
-                    android:layout_width="40dp"
-                    android:layout_height="30dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="50dp"
-                    android:background="#cdc0c0"
-                    android:onClick="opendialog" />
+                <RelativeLayout
+                    android:id="@+id/backgroundChangerlayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/Botomsecondarylayout"
+                    android:layout_marginTop="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp">
 
-            </RelativeLayout>
+                    <TextView
 
-            <RelativeLayout
-                android:id="@+id/Botomprimarylayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/mainsecondarylayout"
-                android:layout_marginTop="10dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp">
+                        android:id="@+id/tv1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="false"
+                        android:layout_centerHorizontal="false"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="40dp"
+                        android:text="Background "
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
 
-                <TextView
+                    <ImageView
+                        android:id="@+id/backgroundChangerimage"
+                        android:layout_width="40dp"
+                        android:layout_height="30dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="50dp"
+                        android:background="@drawable/back1"
+                        android:onClick="imageChooser" />
 
+                </RelativeLayout>
+
+                <SeekBar
+                    android:id="@+id/seekBar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerInParent="false"
-                    android:layout_centerHorizontal="false"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="40dp"
-                    android:text="Chart Primary Color "
-                    android:textColor="@color/white"
-                    android:textSize="18sp" />
-
-                <View
-                    android:id="@+id/Botomprimarycolor"
-                    android:layout_width="40dp"
-                    android:layout_height="30dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="50dp"
-                    android:background="#FFFFFF"
-                    android:onClick="opendialog" />
+                    android:layout_alignTop="@id/switch3"
+                    android:layout_alignBottom="@id/switch3"
+                    android:layout_marginRight="20dp"
+                    android:layout_toLeftOf="@id/textView2"
+                    android:layout_toRightOf="@id/switch3" />
 
             </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/Botomsecondarylayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/Botomprimarylayout"
-                android:layout_marginTop="10dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp">
-
-                <TextView
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="false"
-                    android:layout_centerHorizontal="false"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="40dp"
-                    android:text="Chart SecondaryColor "
-                    android:textColor="@color/white"
-                    android:textSize="18sp" />
-
-                <View
-                    android:id="@+id/Botomsecondarycolor"
-                    android:layout_width="40dp"
-                    android:layout_height="30dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="50dp"
-                    android:background="#cdc0c0"
-                    android:onClick="opendialog" />
-
-            </RelativeLayout>
-
-            <Switch
-                android:id="@+id/switch3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/backgroundChangerlayout"
-                android:layout_marginLeft="40dp"
-                android:layout_marginTop="10dp"
-                android:text="Blurr:"
-                android:textColor="@color/white" />
-
-            <RelativeLayout
-                android:id="@+id/backgroundChangerlayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/Botomsecondarylayout"
-                android:layout_marginTop="10dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp">
-
-                <TextView
-
-                    android:id="@+id/tv1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="false"
-                    android:layout_centerHorizontal="false"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="40dp"
-                    android:text="Background "
-                    android:textColor="@color/white"
-                    android:textSize="18sp" />
-
-                <ImageView
-                    android:id="@+id/backgroundChangerimage"
-                    android:layout_width="40dp"
-                    android:layout_height="30dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="50dp"
-                    android:background="@drawable/back1"
-                    android:onClick="imageChooser" />
-
-            </RelativeLayout>
-
-            <SeekBar
-                android:id="@+id/seekBar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@id/switch3"
-                android:layout_alignBottom="@id/switch3"
-                android:layout_marginRight="20dp"
-                android:layout_toLeftOf="@id/textView2"
-                android:layout_toRightOf="@id/switch3" />
-
-        </RelativeLayout>
+        </ScrollView>
 
     </io.alterac.blurkit.BlurLayout>
 
