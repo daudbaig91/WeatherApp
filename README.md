@@ -35,4 +35,4 @@ Hope you liked the App and Thanks for reading; //:)
 All Choosen settings and locations saved andn reused in app startup.
 Settings also includes a reset options
 
-<img src="https://user-images.githubusercontent.com/46162359/207744244-babc00af-027f-4e9b-a821-f4541c06667c.mp4" align="left" height="500">
+<img src="https://user-images.githubusercontent.com/46162359/207747121-8806b1cd-54f4-4474-be62-5cf997a5190d.mp4" align="left" height="500">
