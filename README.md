@@ -5,7 +5,7 @@ A brief summary of this app from cv:
 
 WeatherApi used for weather data and loading its icons and images using Glide library. Dynamic fragments used to allow user to add/remove new locations and display weather, as default “current” location taken from google places API and google Autocomplete API used for searching and displaying predictions in recycler view, Http requests made through OkHttp. Bottom pull tab contains hourly weather (displayed by using MPAndroidChart Library) and 14-day forecast (in recycler view. App contains a location search panel and preferences panel allowing users to customize background and text colours used in app. Blur Kit library used to add a blur to background images and add a “live” gradient to the search panel as the apps design is inspired by UI/UX designer. TinyDb library used to saved users weather locations in shared preferences.
 
-Hope you liked the App and Thanks for reading; //:) 
+Hope you liked the App and Thanks for reading; // :) 
 
 ###### Main Page:
 
